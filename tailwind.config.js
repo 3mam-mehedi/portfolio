@@ -1,0 +1,14 @@
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+        electrolize: ['Electrolize', 'sans-serif'],
+      },
+    },
+  },
+  plugins: [],
+};

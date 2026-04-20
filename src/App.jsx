@@ -1,32 +1,42 @@
- 
-
 import { Routes, Route } from 'react-router-dom'
+import { useEffect } from 'react'
 import Navbar from './components/Navbar'
-import Footer from './components/Footer'
+import Background from './components/Background'
+import Profile from './components/Profile'
 import Home from './pages/Home'
-import About from './pages/About'
-import Education from './pages/Education'
-import Works from './pages/Works'
+import Experiences from './pages/Experiences'
+import Educations from './pages/Educations'
+import Specializations from './pages/Specializations'
 import Projects from './pages/Projects'
-import Contact from './pages/Contact'
+import Contacts from './pages/Contacts'
+import Skills from './pages/Skills'
 
 export default function App() {
+  useEffect(() => {
+    console.log('App mounted')
+  }, [])
+
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
+    <div className="min-h-screen bg-black text-white relative z-10">
       <Navbar />
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/education" element={<Education />} />
-          <Route path="/works" element={<Works />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<Home />} />
-        </Routes>
+      <Background />
+      <Profile />
+
+      {/* Main Content */}
+      <main className="min-h-screen lg:ml-80 pt-[calc(48vw+1.5rem)] md:pt-[calc(56vw+1.5rem)] lg:pt-0">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/specializations" element={<Specializations />} />
+            <Route path="/educations" element={<Educations />} />
+            <Route path="/experiences" element={<Experiences />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/skills" element={<Skills />} />
+            <Route path="/contacts" element={<Contacts />} />
+            <Route path="*" element={<Home />} />
+          </Routes>
+        </div>
       </main>
-      <Footer />
     </div>
   )
 }
-
