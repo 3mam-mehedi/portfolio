@@ -1,21 +1,20 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
 import {
-  FaLaravel,
-  FaReact,
-  FaHtml5,
-  FaCss3Alt,
-  FaNodeJs,
-  FaCode,
-  FaShopify,
-  FaMobileAlt,
-  FaFigma,
-  FaLayerGroup,
+  FaLaravel, FaReact, FaHtml5, FaGitAlt, FaCss3Alt, FaBootstrap,
+  FaNodeJs, FaCode, FaShopify, FaSpeakap, FaMobileAlt, FaFigma, FaLayerGroup,
+  FaAssistiveListeningSystems,
 } from "react-icons/fa";
 import { FaFlutter } from "react-icons/fa6";
-import { SiCplusplus, SiArduino, SiEnte } from "react-icons/si";
+import { TbApi, TbVocabulary, } from "react-icons/tb";
+import { GiThink } from "react-icons/gi";
+import { DiIllustrator } from "react-icons/di";
+import {
+  SiCplusplus, SiTailwindcss, SiArduino, SiEnte, SiPhp, SiMysql, SiGrammarly,
+  SiTeamspeak, SiPiapro, SiDart,
+} from "react-icons/si";
 
-/* ================= Typing ================= */
+/* ================= Typing Text ================= */
 function TypingText({ text }) {
   const [displayText, setDisplayText] = useState("");
   const [deleting, setDeleting] = useState(false);
@@ -26,10 +25,16 @@ function TypingText({ text }) {
     const timeout = setTimeout(() => {
       if (!deleting) {
         setDisplayText(text.substring(0, displayText.length + 1));
-        if (displayText === text) setTimeout(() => setDeleting(true), 1200);
+
+        if (displayText === text) {
+          setTimeout(() => setDeleting(true), 1200);
+        }
       } else {
         setDisplayText(text.substring(0, displayText.length - 1));
-        if (displayText === "") setDeleting(false);
+
+        if (displayText === "") {
+          setDeleting(false);
+        }
       }
     }, speed);
 
@@ -37,31 +42,23 @@ function TypingText({ text }) {
   }, [displayText, deleting, text]);
 
   return (
-    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-[#0968E5] to-[#091970]">
+    <h2 className="text-3xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-[#0968E5] to-[#091970]">
       {displayText}
-      <span className="animate-pulse text-[#1439f3]">|</span>
+      <span className="animate-pulse text-[#0968E5]">|</span>
     </h2>
   );
 }
 
-/* ================= GLASS 3D CIRCLE ================= */
+/* ================= Circle ================= */
 function Circle({ data }) {
   return (
-    <div className="relative w-52 h-52 flex flex-wrap gap-2 justify-center items-center">
+    <div className="w-52 h-52 flex flex-wrap gap-2 justify-center items-center">
       {data.map((item, i) => (
         <div
           key={i}
-          className="w-[48%] h-[48%] flex items-center justify-center cursor-pointer
-          transition-all duration-300 bg-white/10 backdrop-blur-xl border border-white/20
-          relative overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.25)]
-          hover:shadow-[0_15px_35px_rgba(0,0,0,0.35)]
-          hover:-translate-y-2 hover:scale-105"
+          className="w-[48%] h-[48%] flex items-center justify-center bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl hover:-translate-y-2 hover:scale-105 transition-all duration-300"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-white/25 to-transparent opacity-70" />
-          <div
-            className="relative text-3xl transition-transform duration-300 hover:scale-110"
-            style={{ color: item.color }}
-          >
+          <div className="text-3xl" style={{ color: item.color }}>
             {item.icon}
           </div>
         </div>
@@ -70,7 +67,7 @@ function Circle({ data }) {
   );
 }
 
-/* ================= CARD ================= */
+/* ================= Card ================= */
 const Card = ({
   icon: Icon,
   title,
@@ -83,8 +80,7 @@ const Card = ({
 }) => {
   return (
     <div className="cursor-pointer group overflow-hidden p-5 relative w-full h-60 bg-neutral-900 rounded-xl">
-
-      {/* animation bg */}
+      {/* ORIGINAL ANIMATION */}
       <div className="group-hover:-top-3 bg-transparent -top-12 -left-12 absolute shadow-yellow-800 shadow-inner rounded-xl transition-all duration-1000 w-24 h-24" />
       <div className="group-hover:top-60 bg-transparent top-44 left-14 absolute shadow-red-800 shadow-inner rounded-xl transition-all duration-1000 w-24 h-24" />
       <div className="group-hover:-left-12 bg-transparent top-24 left-56 absolute shadow-sky-800 shadow-inner rounded-xl transition-all duration-1000 w-24 h-24" />
@@ -92,68 +88,62 @@ const Card = ({
       <div className="group-hover:-left-2 bg-transparent -top-24 -left-12 absolute shadow-sky-800 shadow-inner rounded-xl transition-all duration-1000 w-64 h-64" />
       <div className="group-hover:top-44 bg-transparent top-24 left-12 absolute shadow-sky-500 shadow-inner rounded-xl transition-all duration-1000 w-4 h-4" />
 
-      {/* content */}
-      <div className="w-full h-full shadow-xl shadow-neutral-900 p-4 bg-neutral-900 opacity-50 rounded-xl flex flex-col justify-center gap-3 relative z-10">
-
-        {/* title */}
+      {/* CONTENT */}
+      <div className="w-full h-full p-2 flex flex-col gap-2 relative z-10">
+        {/* TITLE */}
         <div className="flex items-center gap-2">
-          <Icon className="text-white text-xl" />
-          <span className="text-neutral-50 font-bold text-xl italic">
+          <Icon className="text-white text-base shrink-0" />
+          <span className="text-white font-bold text-md whitespace-nowrap overflow-hidden text-ellipsis">
             {title}
           </span>
         </div>
 
-        {/* META ROW */}
-        <div className="flex flex-wrap items-center gap-2 text-xs text-neutral-300">
-
-          {/* 🔥 CLICKABLE INSTITUTE */}
+        {/* TOP INFO */}
+        <div className="flex flex-wrap gap-2 text-[11px] text-neutral-200">
           <a
             href={instituteLink}
             target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-2 py-1 bg-neutral-800 rounded-md hover:bg-neutral-700 transition"
+            className="flex items-center gap-2 px-2 py-1 bg-gradient-to-r from-[#0968E5]/25 to-[#091970]/20 rounded-md border border-[#0968E5]/40"
           >
-            <img
-              src={instituteLogo}
-              alt="logo"
-              className="w-7 h-7 rounded-full object-cover bg-white p-[2px]"
-            />
+            <div className="w-5 h-5 bg-white rounded-full overflow-hidden p-[2px]">
+              <img
+                src={instituteLogo}
+                alt="logo"
+                className="w-full h-full object-contain"
+              />
+            </div>
             {institute}
           </a>
 
-          <span className="px-2 py-1 bg-neutral-800 rounded-md">
-            {year}
-          </span>
-
-          <span className="px-2 py-1 bg-neutral-800 rounded-md">
-            {duration}
-          </span>
+          <span className="px-2 py-1 bg-white/10 rounded-md">{year}</span>
+          <span className="px-2 py-1 bg-white/10 rounded-md">{duration}</span>
         </div>
 
-        {/* badges */}
-        <div className="flex flex-wrap gap-2 mt-1">
-          {badges.map((badge, i) => {
+        {/* LABELS */}
+        <div className="grid grid-cols-2 gap-2 mt-1">
+          {badges.slice(0, 6).map((badge, i) => {
             const BadgeIcon = badge.icon;
+
             return (
               <div
                 key={i}
-                className="flex items-center gap-1 px-3 py-2 rounded-md bg-neutral-700/60 backdrop-blur-md"
+                className="flex items-center gap-1 px-2 py-2 rounded-md bg-white/10 border border-white/10"
               >
-                <BadgeIcon className="text-green-400 text-xs" />
-                <span className="text-xs text-neutral-200">
+                <BadgeIcon className="text-white text-md shrink-0" />
+                <span className="text-xs
+                 text-white/80 truncate">
                   {badge.label}
                 </span>
               </div>
             );
           })}
         </div>
-
       </div>
     </div>
   );
 };
 
-/* ================= MAIN ================= */
+/* ================= Main ================= */
 export default function Skills() {
   const sectionRef = useRef();
   const [show, setShow] = useState(false);
@@ -163,6 +153,7 @@ export default function Skills() {
       ([entry]) => entry.isIntersecting && setShow(true),
       { threshold: 0.2 }
     );
+
     observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
@@ -170,80 +161,102 @@ export default function Skills() {
   const skillIcons = [
     { icon: <FaHtml5 />, color: "#e34a24" },
     { icon: <FaCss3Alt />, color: "#2b57f8" },
-    { icon: <SiCplusplus />, color: "#007ecc" },
-    { icon: <FaNodeJs />, color: "#fad21d" },
+    { icon: <FaBootstrap />, color: "#6f2cf5" },
+    { icon: <SiTailwindcss />, color: "#00bbff" },
   ];
-
   const skillIconsa = [
-    { icon: <FaReact />, color: "#61DBFB" },
-    { icon: <FaLaravel />, color: "#f52f02" },
-    { icon: <FaFlutter />, color: "#51c5f7" },
-    { icon: <SiArduino />, color: "#007582" },
+    { icon: < SiCplusplus />, color: "#1469be" },
+    { icon: < FaNodeJs />, color: "#65b849" }
+    , { icon: < SiPhp />, color: "#797db5" },
+    { icon: < SiMysql />, color: "#0a707f" },
+  ];
+  const skillIconsb = [
+    { icon: <FaReact />, color: "#00d9ff" },
+    { icon: < FaLaravel />, color: "#ff2919" },
+    { icon: < FaFlutter />, color: "#5ec9f7" },
+    { icon: <SiDart />, color: "#02599c" },
+  ];
+  const skillIconsc = [
+    { icon: < SiArduino />, color: "#118693" },
+    { icon: <FaGitAlt />, color: "#f05232" },
+    { icon: <FaFigma />, color: "#8f4aff" },
+    { icon: < DiIllustrator />, color: "#ff7b1c" },
   ];
 
   return (
     <section
       ref={sectionRef}
-      className={`w-full py-20 px-4 transition-all duration-1000 ${
-        show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-      }`}
+      className={`w-full py-20 px-4 transition-all duration-1000 ${show ? "opacity-100" : "opacity-0"
+        }`}
     >
       <TypingText text="Skills" />
 
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
-
-        <div className="flex flex-col gap-4">
+      <div className="max-w-6xl mx-auto flex flex-col gap-10">
+        {/* CARDS */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <Card
             icon={FaLaravel}
             title="PHP WITH LARAVEL FRAMEWORK"
             institute="Basis"
             instituteLogo="/assets/skills/basis.png"
-            instituteLink="https://basis.org.bd/"
-            year="2024"
-            duration="6 Months"
-            badges={[
-              { label: "Frontend", icon: FaCode },
-              { label: "Hooks", icon: FaLayerGroup },
-              { label: "SPA", icon: FaMobileAlt },
-            ]}
-          />
-
-          <Card
-            icon={FaShopify}
-            title="ADVANCED E-COMMERCE"
-            institute="Soft Park IT"
-            instituteLogo="/assets/skills/spi.png"
-            instituteLink="https://softparkit.com/"
+            instituteLink="#"
             year="2023"
-            duration="1 Year"
+            duration="3 Months"
             badges={[
-              { label: "Responsive", icon: FaMobileAlt },
-              { label: "UI", icon: FaFigma },
-              { label: "Tailwind", icon: FaCode },
+              { label: "HTML", icon: FaHtml5 },
+              { label: "CSS", icon: FaCss3Alt },
+              { label: "Bootstrap", icon: FaBootstrap },
+              { label: "PHP", icon: SiPhp },
+              { label: "MySQL", icon: SiMysql },
+              { label: "API", icon: TbApi },
             ]}
           />
 
           <Card
             icon={SiEnte}
+            title="ADVANCED E-COMMERCE"
+            institute="Soft Park IT"
+            instituteLogo="/assets/skills/spi.png"
+            instituteLink="#"
+            year="2023"
+            duration="3 Months"
+            badges={[
+              { label: "HTML", icon: FaHtml5 },
+              { label: "CSS", icon: FaCss3Alt },
+              { label: "Bootstrap", icon: FaBootstrap },
+              { label: "PHP", icon: SiPhp },
+              { label: "MySQL", icon: SiMysql },
+              { label: "API", icon: TbApi },
+            ]}
+          />
+
+          <Card
+            icon={FaSpeakap}
             title="SPOKEN ENGLISH"
             institute="Saifurs"
             instituteLogo="/assets/skills/saifurs.png"
-            instituteLink="https://saifurs.com/"
+            instituteLink="#"
             year="2022"
             duration="3 Months"
             badges={[
-              { label: "Figma", icon: FaFigma },
-              { label: "Wireframe", icon: FaLayerGroup },
-              { label: "UX", icon: FaCode },
+              { label: "Vocabulary", icon: TbVocabulary },
+              { label: "Grammar", icon: SiGrammarly },
+              { label: "Listening", icon: FaAssistiveListeningSystems },
+              { label: "Speaking", icon: SiTeamspeak },
+              { label: "Pronunciation", icon: SiPiapro },
+              { label: "Thinking", icon: GiThink },
             ]}
           />
+
         </div>
 
-        <div className="flex flex-col items-center gap-10 sticky top-24">
+        {/* ICONS */}
+        <div className="flex justify-center gap-10 flex-wrap">
           <Circle data={skillIcons} />
           <Circle data={skillIconsa} />
+          <Circle data={skillIconsb} />
+          <Circle data={skillIconsc} />
         </div>
-
       </div>
     </section>
   );

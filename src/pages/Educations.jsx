@@ -54,7 +54,7 @@ function LoopingTyping({ text, speed = 160, pause = 1200 }) {
   }, [index, deleting, text, speed, pause]);
 
   return (
-    <h1 className="text-5xl md:text-6xl font-extrabold mt-2 
+    <h1 className="text-3xl font-extrabold mt-2 
       bg-gradient-to-r from-[#0968E5] to-[#091970] 
       bg-clip-text text-transparent">
       {displayed}
@@ -79,18 +79,7 @@ function Educations() {
 
       {/* Header (Static, no animation) */}
       <div className="text-center mb-6">
-        <h2 className="text-2xl md:text-3xl font-bold 
-          bg-gradient-to-r from-[#00EE6E] to-[#0C75E6] bg-clip-text text-transparent">
-          Academic Track
-        </h2>
-
-        <LoopingTyping text="Education" />
-
-        <p className="text-lg mt-2 
-          bg-gradient-to-r from-[#EBF4F5] to-[#B5C6E0] 
-          bg-clip-text text-transparent">
-          Credentials and courses that shaped my foundation.
-        </p>
+      <LoopingTyping text="Education" />
       </div>
 
       {/* Carousel */}

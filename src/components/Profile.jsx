@@ -68,7 +68,7 @@ export default function Profile() {
               <div
                 className="
                 absolute w-full h-full
-                rounded-[2rem]
+                rounded-xl
                 flex flex-col items-center justify-center gap-4
                 shadow-[0_0_15px_10px_rgba(13,65,225,0.8)]
                 backface-hidden
@@ -112,7 +112,7 @@ export default function Profile() {
               <div
                 className="
                 absolute w-full h-full
-                rounded-2xl
+                rounded-xl
                 flex flex-col items-center justify-center
                 gap-4
                 shadow-[0_0_15px_10px_rgba(13,65,225,0.9)]
