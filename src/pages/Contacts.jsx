@@ -195,10 +195,10 @@ export default function Contact() {
   }, []);
 
   return (
-    <div className="w-full mt-12 overflow-hidden">
+    <div className="w-full mt-10 overflow-hidden">
 
       {/* 🔥 Typing Title */}
-      <h1 className="text-center text-4xl font-bold text-[#0968E5] mb-10">
+      <h1 className="text-center text-3xl font-bold text-[#0968E5] mb-10">
         {displayText}
         <span className="typing-cursor">|</span>
       </h1>
