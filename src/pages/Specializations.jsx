@@ -27,7 +27,7 @@ const Card = ({ icon: Icon, title, description, badges = [] }) => {
 
         <p className="text-neutral-300 text-sm">{description}</p>
 
-        <div className="flex flex-wrap gap-2 mt-2">
+        <div className="flex flex-wrap gap-2">
           {badges.map((badge, i) => {
             const BadgeIcon = badge.icon;
             return (
@@ -95,12 +95,12 @@ export default function Specializations() {
   }, []);
 
   return (
-    <section className="py-20 lg:py-28">
+    <section className="py-20 lg:py-10">
 
       <div className="max-w-6xl mx-auto px-4">
 
         {/* 🔥 Typing Title */}
-        <h2 className="text-3xl font-bold mb-10 text-center bg-gradient-to-r from-[#0968E5] to-[#091970] bg-clip-text text-transparent">
+        <h2 className="text-3xl font-bold mb-4 text-center bg-gradient-to-r from-[#0968E5] to-[#091970] bg-clip-text text-transparent">
           {displayText}
           <span className="ml-1 animate-pulse">|</span>
         </h2>

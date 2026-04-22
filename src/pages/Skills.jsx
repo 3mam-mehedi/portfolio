@@ -42,21 +42,20 @@ function TypingText({ text }) {
   }, [displayText, deleting, text]);
 
   return (
-    <h2 className="text-3xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-[#0968E5] to-[#091970]">
+    <h2 className="text-3xl font-bold text-center mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#0968E5] to-[#091970]">
       {displayText}
       <span className="animate-pulse text-[#0968E5]">|</span>
     </h2>
   );
 }
 
-/* ================= Circle ================= */
 function Circle({ data }) {
   return (
-    <div className="w-52 h-52 flex flex-wrap gap-2 justify-center items-center">
+    <div className="w-42 h-42 flex flex-wrap gap-2 justify-center items-center">
       {data.map((item, i) => (
         <div
           key={i}
-          className="w-[48%] h-[48%] flex items-center justify-center bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl hover:-translate-y-2 hover:scale-105 transition-all duration-300"
+          className="w-[38%] h-[38%] flex items-center justify-center bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl hover:-translate-y-2 hover:scale-105 transition-all duration-300"
         >
           <div className="text-3xl" style={{ color: item.color }}>
             {item.icon}
@@ -186,12 +185,12 @@ export default function Skills() {
   return (
     <section
       ref={sectionRef}
-      className={`w-full py-20 px-4 transition-all duration-1000 ${show ? "opacity-100" : "opacity-0"
+      className={`w-full py-10 px-4 transition-all duration-1000 ${show ? "opacity-100" : "opacity-0"
         }`}
     >
       <TypingText text="Skills" />
 
-      <div className="max-w-6xl mx-auto flex flex-col gap-10">
+      <div className="max-w-6xl mx-auto flex flex-col gap-4">
         {/* CARDS */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <Card
@@ -251,7 +250,7 @@ export default function Skills() {
         </div>
 
         {/* ICONS */}
-        <div className="flex justify-center gap-10 flex-wrap">
+        <div className="flex justify-center flex-wrap">
           <Circle data={skillIcons} />
           <Circle data={skillIconsa} />
           <Circle data={skillIconsb} />
