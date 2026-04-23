@@ -95,7 +95,7 @@ export default function Specializations() {
   }, []);
 
   return (
-    <section className="py-20 lg:py-10">
+    <section className="lg:py-10">
 
       <div className="max-w-6xl mx-auto px-4">
 

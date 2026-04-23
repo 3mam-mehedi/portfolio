@@ -33,8 +33,9 @@ export default function Experiences() {
   }, [index, isDeleting]);
 
   return (
-    <section className="py-10">
-      {/* SVG Gradient */}
+    <section className="lg:py-10">
+
+      {/* SVG GRADIENT */}
       <svg width="0" height="0">
         <defs>
           <linearGradient id="buildingGradient">
@@ -46,24 +47,33 @@ export default function Experiences() {
 
       <div className="max-w-4xl mx-auto px-4">
 
-        {/* HEADING */}
-        <h2 className="text-3xl font-bold mb-10 text-center bg-gradient-to-r from-[#0968E5] to-[#091970] bg-clip-text text-transparent tracking-wide">
+        {/* TITLE */}
+        <h2 className="text-3xl font-bold mb-6 lg:mb-10 text-center bg-gradient-to-r from-[#0968E5] to-[#091970] bg-clip-text text-transparent tracking-wide">
           {displayText}
           <span className="animate-pulse">|</span>
         </h2>
 
-        {/* ✅ NOW VERTICAL */}
-        <div className="flex flex-col gap-8 items-center">
+        <div className="flex flex-col gap-4 lg:gap-8 items-center">
 
-          {/* CARD 1 */}
-          <div className="w-full md:w-[50%] h-52 perspective">
-            <div className="card-inner">
+          {/* ================= CARD 1 ================= */}
+          <div className="w-full md:w-[50%] h-52 perspective group relative rounded-xl overflow-hidden">
 
-              {/* FRONT */}
+            {/* 🔥 BACKGROUND ANIMATION LAYER */}
+            <div className="absolute inset-0 z-20">
+              <div className="group-hover:-top-3 absolute -top-12 -left-12 shadow-yellow-800 shadow-inner rounded-xl transition-all duration-1000 w-24 h-24" />
+              <div className="group-hover:top-60 absolute top-44 left-14 shadow-red-800 shadow-inner rounded-xl transition-all duration-1000 w-24 h-24" />
+              <div className="group-hover:-left-12 absolute top-24 left-56 shadow-sky-800 shadow-inner rounded-xl transition-all duration-1000 w-24 h-24" />
+              <div className="group-hover:-top-44 absolute top-12 left-12 shadow-red-800 shadow-inner rounded-xl transition-all duration-1000 w-12 h-12" />
+              <div className="group-hover:left-44 absolute top-12 left-12 shadow-green-800 shadow-inner rounded-xl transition-all duration-1000 w-44 h-44" />
+              <div className="group-hover:-left-2 absolute -top-24 -left-12 shadow-sky-800 shadow-inner rounded-xl transition-all duration-1000 w-64 h-64" />
+              <div className="group-hover:top-44 absolute top-24 left-12 shadow-sky-500 shadow-inner rounded-xl transition-all duration-1000 w-4 h-4" />
+            </div>
+
+            {/* CARD */}
+            <div className="card-inner relative z-0">
+
               <div className="card-face">
-                <h2 className="title">
-                  PROJECT REPORT WRITER
-                </h2>
+                <h2 className="title">PROJECT REPORT WRITER</h2>
 
                 <p className="subtitle">
                   <FaBuilding style={{ fill: "url(#buildingGradient)" }} />
@@ -71,7 +81,6 @@ export default function Experiences() {
                 </p>
               </div>
 
-              {/* BACK */}
               <div className="card-face card-back">
                 <h2 className="title">On Site</h2>
 
@@ -96,14 +105,27 @@ export default function Experiences() {
                   </span>
                 </div>
               </div>
+
             </div>
           </div>
 
-          {/* CARD 2 */}
-          <div className="w-full md:w-[50%] h-52 perspective">
-            <div className="card-inner rotate-x">
+          {/* ================= CARD 2 ================= */}
+          <div className="w-full md:w-[50%] h-52 perspective group relative rounded-xl overflow-hidden">
 
-              {/* FRONT */}
+            {/* 🔥 BACKGROUND ANIMATION */}
+            <div className="absolute inset-0 z-20">
+              <div className="group-hover:-top-3 absolute -top-12 -left-12 shadow-yellow-800 shadow-inner rounded-xl transition-all duration-1000 w-24 h-24" />
+              <div className="group-hover:top-60 absolute top-44 left-14 shadow-red-800 shadow-inner rounded-xl transition-all duration-1000 w-24 h-24" />
+              <div className="group-hover:-left-12 absolute top-24 left-56 shadow-sky-800 shadow-inner rounded-xl transition-all duration-1000 w-24 h-24" />
+              <div className="group-hover:-top-44 absolute top-12 left-12 shadow-red-800 shadow-inner rounded-xl transition-all duration-1000 w-12 h-12" />
+              <div className="group-hover:left-44 absolute top-12 left-12 shadow-green-800 shadow-inner rounded-xl transition-all duration-1000 w-44 h-44" />
+              <div className="group-hover:-left-2 absolute -top-24 -left-12 shadow-sky-800 shadow-inner rounded-xl transition-all duration-1000 w-64 h-64" />
+              <div className="group-hover:top-44 absolute top-24 left-12 shadow-sky-500 shadow-inner rounded-xl transition-all duration-1000 w-4 h-4" />
+            </div>
+
+            {/* CARD */}
+            <div className="card-inner rotate-x relative z-0">
+
               <div className="card-face">
                 <h2 className="title">Frontend Developer</h2>
 
@@ -113,7 +135,6 @@ export default function Experiences() {
                 </p>
               </div>
 
-              {/* BACK */}
               <div className="card-face card-back rotate-x-back">
                 <h2 className="title">Remote</h2>
 
@@ -132,13 +153,14 @@ export default function Experiences() {
                   </span>
                 </div>
               </div>
+
             </div>
           </div>
 
         </div>
       </div>
 
-      {/* ✅ SCOPED CSS (NO NAVBAR EFFECT) */}
+      {/* STYLES (UNCHANGED) */}
       <style jsx>{`
         .perspective {
           perspective: 1000px;
@@ -217,6 +239,7 @@ export default function Experiences() {
           font-size: 0.8rem;
         }
       `}</style>
+
     </section>
   );
 }

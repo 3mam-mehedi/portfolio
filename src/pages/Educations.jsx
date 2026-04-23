@@ -75,7 +75,7 @@ function Educations() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col items-center overflow-hidden px-4 mt-10">
+    <div className="min-h-screen flex flex-col items-center overflow-hidden px-4 lg:py-10">
 
       {/* Header (Static, no animation) */}
       <div className="text-center">
@@ -84,7 +84,7 @@ function Educations() {
 
       {/* Carousel */}
       <div className="relative w-full h-[480px] flex items-center justify-center">
-        {educations.map((item, index) => {
+        {educations.map((item, index) => { 
           const position = (index - active + educations.length) % educations.length;
 
           let style = "";

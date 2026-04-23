@@ -195,12 +195,12 @@ export default function Contact() {
   }, []);
 
   return (
-    <div className="w-full mt-10 overflow-hidden">
+    <div className="w-full lg:mt-10 overflow-hidden">
 
       {/* 🔥 Typing Title */}
-      <h1 className="text-center text-3xl font-bold text-[#0968E5] mb-10">
+      <h1 className="text-center text-3xl font-bold text-[#0968E5] mb-4">
         {displayText}
-        <span className="typing-cursor">|</span>
+        <span className="typing-cursor"></span>
       </h1>
 
       <div className="flex flex-col rounded-md md:flex-row h-full w-full overflow-hidden">
@@ -222,9 +222,9 @@ export default function Contact() {
         </div>
 
         {/* Form */}
-        <div className="flex w-full flex-col justify-end pb-12 bg-white md:w-1/2 dark:bg-zinc-900">
+        <div className="flex w-full flex-col justify-end pb-3 lg:pb-12 bg-white md:w-1/2 dark:bg-zinc-900">
 
-          <form className="flex w-full flex-col mt-12 items-center justify-center gap-4 px-4">
+          <form className="flex w-full flex-col mt-2 lg:mt-12 items-center justify-center gap-3 lg:gap-4 px-4">
 
             <input className="w-full max-w-md rounded-lg border border-[#0968E5] py-2 pl-4 text-zinc-600" type="text" placeholder="Your Name" />
 
@@ -232,7 +232,7 @@ export default function Contact() {
 
             <input className="w-full max-w-md rounded-lg border border-[#0968E5] py-2 pl-4 text-zinc-600" type="text" placeholder="Subject" />
 
-            <textarea className="w-full max-w-md rounded-lg border border-[#0968E5] py-2 pl-4 text-zinc-600" placeholder="Message" rows={5}></textarea>
+            <textarea className="w-full max-w-md rounded-lg border border-[#0968E5] py-2 pl-4 text-zinc-600" placeholder="Message" rows={3}></textarea>
 
             <button className="button" type="submit">
               <div className="outline"></div>

@@ -12,6 +12,15 @@ export default function Home() {
   const hireBtnRef = useRef(null);
   const balloonsRef = useRef(null);
 
+  // 🔥 Disable Scroll (IMPORTANT FIX)
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
+
   // Typing effect
   useEffect(() => {
     const typingSpeed = isDeleting ? 60 : 120;
@@ -87,9 +96,9 @@ export default function Home() {
   };
 
   return (
-    <section className="py-2 lg:py-48 relative">
+    <section className="lg:py-48 relative">
       <div className="max-w-6xl mx-auto px-4 text-center">
-        
+
         {/* Heading */}
         <h1 className="text-3xl sm:text-4xl font-bold">
           Hi, I'm{" "}
@@ -99,7 +108,7 @@ export default function Home() {
           </span>
         </h1>
 
-        {/* ✅ Fixed Gradient Text */}
+        {/* Gradient Title */}
         <p className="bg-gradient-to-r from-[#00EE6E] to-[#0C75E6] bg-clip-text text-transparent mt-4 font-semibold">
           Frontend Developer
         </p>
@@ -107,14 +116,14 @@ export default function Home() {
         {/* Description */}
         <p className="mt-3 text-white max-w-2xl mx-auto">
           A passionate Frontend Developer with a focus on UI/UX, creating intuitive and visually
-          engaging digital experiences. Skilled in React, JavaScript, and Tailwind CSS, I build 
-          responsive and scalable web applications. I also have experience in IoT and embedded 
+          engaging digital experiences. Skilled in React, JavaScript, and Tailwind CSS, I build
+          responsive and scalable web applications. I also have experience in IoT and embedded
           systems, combining software and smart solutions to develop real-world projects.
         </p>
 
         {/* Buttons */}
         <div className="mt-10 flex flex-col sm:flex-row gap-6 justify-center items-center">
-          
+
           {/* Hire Me */}
           <button
             ref={hireBtnRef}
@@ -132,10 +141,8 @@ export default function Home() {
             onClick={handleDownloadCV}
             className="download-btn group relative px-8 py-3 rounded-xl font-semibold flex items-center gap-2 overflow-hidden border-2 border-[#0968E5]"
           >
-            <span
-              className="bg-fill absolute top-0 left-[-100%] w-full h-full 
-              bg-gradient-to-r from-[#0968E5] to-[#091970] transition-all duration-300 z-0"
-            ></span>
+            <span className="bg-fill absolute top-0 left-[-100%] w-full h-full 
+              bg-gradient-to-r from-[#0968E5] to-[#091970] transition-all duration-300 z-0"></span>
 
             <span className="relative z-10 flex items-center gap-2 text-[#0968E5] group-hover:text-white transition">
               <FiDownload className="text-lg" /> Download CV

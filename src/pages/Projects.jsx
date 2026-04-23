@@ -50,24 +50,20 @@ export default function Projects() {
   ];
 
   return (
-    <section className="py-10 px-4 sm:px-6 lg:px-12">
-      <h2 className="text-3xl text-white font-bold text-center mb-12">
-        Projects
-      </h2>
+    <section className="lg:py-10 sm:px-6 lg:px-12">
+     <h2 className="text-3xl font-bold text-center mb-6 flex justify-center">
+  <span className="typing-text">
+    Projects<span className=""></span>
+  </span>
+</h2>
 
       {/* Responsive grid with proper mobile spacing */}
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 place-items-center">
+      <div className="grid gap-6 sm:grid-cols-2 mb-20 lg:grid-cols-3 place-items-center">
         {projects.map((project, i) => (
           <div
             key={i}
-            className="card"
-            style={{
-              width: "calc(100vw - 40px)", // leaves 20px margin each side on mobile
-              maxWidth: "300px",           // original max width
-              height: "calc((100vw - 40px) * 0.73)", // maintain original aspect ratio
-              maxHeight: "220px",          // original height
-              backgroundImage: `url(${project.image})`,
-            }}
+            className="card w-full max-w-[300px] h-[220px] sm:h-[240px]"
+            style={{ backgroundImage: `url(${project.image})` }}
           >
             {/* Pre-hover 3 central icons */}
             <div className="top-icons">
@@ -105,6 +101,47 @@ export default function Projects() {
       </div>
 
       <style>{`
+
+.typing-text {
+  background: linear-gradient(90deg, #0968E5, #091970);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  display: inline-flex;
+  align-items: center;
+
+  overflow: hidden;
+  white-space: nowrap;
+
+  animation: typing 3s steps(8) infinite;
+}
+
+/* cursor (custom control) */
+.cursor {
+  display: inline-block;
+  width: 2px;          
+  height: 24px;     
+  background: #0968E5;
+  margin-left: 3px;
+
+  animation: blink 0.7s infinite;
+  border-radius: 2px;
+}
+
+/* typing animation */
+@keyframes typing {
+  0%   { max-width: 0; }
+  40%  { max-width: 8ch; }
+  60%  { max-width: 8ch; }
+  100% { max-width: 0; }
+}
+
+/* blink */
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+
 /* Card base */
 .card{
   position:relative;

@@ -23,7 +23,7 @@ export default function App() {
       <Profile />
 
       {/* Main Content */}
-      <main className="min-h-screen lg:ml-80 pt-[calc(48vw+1.5rem)] md:pt-[calc(56vw+1.5rem)] lg:pt-0">
+      <main className="min-h-screen lg:ml-40 pt-6 md:pt-8 lg:pt-0">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <Routes>
             <Route path="/" element={<Home />} />
