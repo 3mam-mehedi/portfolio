@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Background from './components/Background'
 import Profile from './components/Profile'
+import ScrollToTop from './components/ui/ScrollToTop'
 import Home from './pages/Home'
 import Experiences from './pages/Experiences'
 import Educations from './pages/Educations'
@@ -21,6 +22,7 @@ export default function App() {
       <Navbar />
       <Background />
       <Profile />
+      <ScrollToTop />
 
       {/* Main Content */}
       <main className="min-h-screen lg:ml-40 pt-6 md:pt-8 lg:pt-0">
