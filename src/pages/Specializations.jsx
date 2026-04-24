@@ -84,13 +84,24 @@ export default function Specializations() {
     return () => clearTimeout(timeout);
   }, [index, isDeleting]);
 
-  // 🔥 Disable Scroll (NO DESIGN CHANGE)
+  // 🔥 Mobile scroll ON, Desktop OFF
   useEffect(() => {
     const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        document.body.style.overflow = "auto"; // 📱 mobile scroll
+      } else {
+        document.body.style.overflow = "hidden"; // 💻 desktop lock
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
 
     return () => {
       document.body.style.overflow = prev;
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 

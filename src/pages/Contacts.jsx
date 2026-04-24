@@ -32,7 +32,7 @@ export default function Contact() {
     return () => clearTimeout(timeout);
   }, [index, isDeleting]);
 
-  // 🔥 Disable full page scroll (NO DESIGN CHANGE)
+  // 🔥 Mobile scroll ON, Desktop OFF
   useEffect(() => {
     const html = document.documentElement;
     const body = document.body;
@@ -41,14 +41,28 @@ export default function Contact() {
     const prevBodyOverflow = body.style.overflow;
     const prevBodyHeight = body.style.height;
 
-    html.style.overflow = "hidden";
-    body.style.overflow = "hidden";
-    body.style.height = "100vh";
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        // 📱 Mobile → scroll ON
+        html.style.overflow = "auto";
+        body.style.overflow = "auto";
+        body.style.height = "auto";
+      } else {
+        // 💻 Desktop → scroll OFF
+        html.style.overflow = "hidden";
+        body.style.overflow = "hidden";
+        body.style.height = "100vh";
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
 
     return () => {
       html.style.overflow = prevHtmlOverflow;
       body.style.overflow = prevBodyOverflow;
       body.style.height = prevBodyHeight;
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
