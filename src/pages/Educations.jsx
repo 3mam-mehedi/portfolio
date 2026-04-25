@@ -29,7 +29,7 @@ const educations = [
   },
 ];
 
-// Typing animation
+// Typing Animation
 function LoopingTyping({ text, speed = 160, pause = 1200 }) {
   const [displayed, setDisplayed] = useState("");
   const [index, setIndex] = useState(0);
@@ -54,7 +54,7 @@ function LoopingTyping({ text, speed = 160, pause = 1200 }) {
   }, [index, deleting, text, speed, pause]);
 
   return (
-    <h1 className="text-3xl font-extrabold mt-2 
+    <h1 className="text-2xl font-extrabold mt-2 
       bg-gradient-to-r from-[#0968E5] to-[#091970] 
       bg-clip-text text-transparent">
       {displayed}
@@ -64,118 +64,101 @@ function LoopingTyping({ text, speed = 160, pause = 1200 }) {
 }
 
 function Educations() {
-  const [active, setActive] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActive((prev) => (prev + 1) % educations.length);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <div className="min-h-screen flex flex-col items-center overflow-hidden px-4 lg:py-10">
+    <div className="min-h-screen flex flex-col items-center px-4">
 
-      {/* Header (Static, no animation) */}
-      <div className="text-center">
-      <LoopingTyping text="Education" />
+      {/* Header */}
+      <div className="text-center mb-6">
+        <LoopingTyping text="Education" />
       </div>
 
-      {/* Carousel */}
-      <div className="relative w-full h-[480px] flex items-center justify-center">
-        {educations.map((item, index) => { 
-          const position = (index - active + educations.length) % educations.length;
+      {/* Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-4xl">
 
-          let style = "";
-          if (position === 0)
-            style = "scale-100 opacity-100 z-30 translate-x-0 rotate-0";
-          else if (position === 1)
-            style = "scale-90 opacity-40 z-20 translate-x-[320px] rotate-6";
-          else
-            style = "scale-90 opacity-40 z-20 -translate-x-[320px] -rotate-6";
+        {educations.map((item, index) => (
+          <div
+            key={index}
+            className={`w-full p-4 rounded-2xl
+              backdrop-blur-xl bg-white/5 border border-white/10
+              shadow-xl transition-all duration-300 hover:scale-[1.05]
+              ${index === 0 ? "sm:col-span-2" : ""}
+            `}
+          >
+            <div className={`space-y-3 ${index === 0 ? "text-center flex flex-col items-center" : ""}`}>
 
-          return (
-            <div
-              key={index}
-              className={`absolute w-[360px] md:w-[500px] p-6 rounded-3xl
-                backdrop-blur-xl bg-white/5 border border-white/10
-                shadow-2xl transition-all duration-700 ${style}`}
-            >
-              <div className="space-y-4">
-
-                {/* Header */}
-                <div className="flex items-center gap-4">
-                  <img
-                    src={item.img}
-                    alt={item.title}
-                    className="w-16 h-16 rounded-full border-2 border-blue-500"
-                  />
-                  <h3 className="text-white font-semibold text-lg md:text-xl truncate">
-                    {item.title}
-                  </h3>
-                </div>
-
-                {/* Institute Gradient */}
-                <span className="text-sm font-semibold tracking-wide 
-                  bg-gradient-to-r from-[#00EE6E] to-[#0C75E6] 
-                  bg-clip-text text-transparent">
-                  {item.institute}
-                </span>
-
-                {/* Shining Badges */}
-                {item.session && item.cgpa && (
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    <span className="badge">Session: {item.session}</span>
-                    <span className="badge">CGPA: {item.cgpa} / 4.00</span>
-                  </div>
-                )}
-
-                {item.exam && item.gpa && (
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    <span className="badge">Exam: {item.exam}</span>
-                    <span className="badge">GPA: {item.gpa}</span>
-                  </div>
-                )}
-
-                {/* Description */}
-                <p className="text-white/70 text-sm">{item.desc}</p>
-
-                {/* Project */}
-                {item.project && (
-                  <div className="p-3 rounded-xl bg-white/5 border border-white/10">
-                    <p className="text-xs text-white/60">
-                      Final Year Project
-                    </p>
-                    <a
-                      href={item.projectLink}
-                      target="_blank"
-                      className="text-sm text-blue-400"
-                    >
-                      {item.project} →
-                    </a>
-                  </div>
-                )}
-
+              {/* Header */}
+              <div className={`flex items-center gap-2 ${index === 0 ? "justify-center" : ""}`}>
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  className="w-12 h-12 rounded-full border-2 border-blue-500 object-cover"
+                />
+                <h3 className="text-white font-semibold text-base md:text-lg">
+                  {item.title}
+                </h3>
               </div>
+
+              {/* Institute */}
+              <span className="text-xs font-semibold tracking-wide 
+                bg-gradient-to-r from-[#00EE6E] to-[#0C75E6] 
+                bg-clip-text text-transparent">
+                {item.institute}
+              </span>
+
+              {/* Badges */}
+              {item.session && item.cgpa && (
+                <div className="flex flex-wrap gap-2 mt-1 justify-center">
+                  <span className="badge">Session: {item.session}</span>
+                  <span className="badge">CGPA: {item.cgpa} / 4.00</span>
+                </div>
+              )}
+
+              {item.exam && item.gpa && (
+                <div className="flex flex-wrap gap-2 mt-1 justify-center">
+                  <span className="badge">Exam: {item.exam}</span>
+                  <span className="badge">GPA: {item.gpa}</span>
+                </div>
+              )}
+
+              {/* Description */}
+              <p className="text-white/70 text-xs">{item.desc}</p>
+
+              {/* Project */}
+              {item.project && (
+                <div className="p-2 rounded-lg bg-white/5 border border-white/10">
+                  <p className="text-[10px] text-white/60">
+                    Final Year Project
+                  </p>
+                  <a
+                    href={item.projectLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-blue-400 hover:underline"
+                  >
+                    {item.project} →
+                  </a>
+                </div>
+              )}
+
             </div>
-          );
-        })}
+          </div>
+        ))}
+
       </div>
 
-      {/* Shine Badge Style */}
+      {/* Badge Style */}
       <style>
         {`
         .badge {
           position: relative;
-          padding: 4px 12px;
-          font-size: 11px;
-          border-radius: 6px;
+          padding: 3px 10px;
+          font-size: 10px;
+          border-radius: 5px;
           color: white;
           background: linear-gradient(90deg, #0968E5, #091970);
           border: 1px solid rgba(255,255,255,0.1);
           overflow: hidden;
-          box-shadow: 0 0 10px rgba(9,104,229,0.4);
+          box-shadow: 0 0 8px rgba(9,104,229,0.3);
         }
 
         .badge::before {
@@ -188,7 +171,7 @@ function Educations() {
           background: linear-gradient(
             120deg,
             transparent,
-            rgba(255,255,255,0.6),
+            rgba(255,255,255,0.5),
             transparent
           );
           transform: skewX(-25deg);
