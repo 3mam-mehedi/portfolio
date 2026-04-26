@@ -16,7 +16,7 @@ const Card = ({ icon: Icon, title, description, badges = [] }) => {
       <div className="group-hover:-left-2 bg-transparent -top-24 -left-12 absolute shadow-sky-800 shadow-inner rounded-xl transition-all duration-1000 w-64 h-64" />
       <div className="group-hover:top-44 bg-transparent top-24 left-12 absolute shadow-sky-500 shadow-inner rounded-xl transition-all duration-1000 w-4 h-4" />
 
-      <div className="w-full h-full shadow-xl shadow-neutral-900 p-4 bg-neutral-900 opacity-50 rounded-xl flex flex-col justify-center gap-3 relative z-10">
+      <div className="w-full h-full p-4 rounded-xl flex flex-col justify-center gap-3 relative z-10">
 
         <div className="flex items-center gap-2">
           {Icon && <Icon className="text-white text-xl" />}
