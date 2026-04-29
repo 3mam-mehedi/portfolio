@@ -96,7 +96,7 @@ export default function Home() {
   };
 
   return (
-    <section className="lg:py-48 relative">
+    <section className="lg:pt-48 relative">
       <div className="max-w-6xl mx-auto px-4 text-center">
 
         {/* Heading */}

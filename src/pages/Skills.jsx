@@ -42,7 +42,7 @@ function TypingText({ text }) {
   }, [displayText, deleting, text]);
 
   return (
-    <h2 className="text-3xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#0968E5] to-[#091970]">
+    <h2 className="text-3xl font-bold text-center mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#0968E5] to-[#091970]">
       {displayText}
       <span className="animate-pulse text-[#0968E5]">|</span>
     </h2>
@@ -185,12 +185,12 @@ export default function Skills() {
   return (
     <section
       ref={sectionRef}
-      className={`w-full lg:py-10 px-4 transition-all duration-1000 ${show ? "opacity-100" : "opacity-0"
+      className={`w-full px-4 transition-all duration-1000 ${show ? "opacity-100" : "opacity-0"
         }`}
     >
       <TypingText text="Skills" />
 
-      <div className="max-w-6xl mx-auto flex flex-col gap-4">
+      <div className="max-w-6xl mx-auto flex flex-col gap-4 mb-22">
         {/* CARDS */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <Card

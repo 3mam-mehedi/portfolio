@@ -33,7 +33,7 @@ export default function Experiences() {
   }, [index, isDeleting]);
 
   return (
-    <section className="lg:py-10">
+    <section>
 
       {/* SVG GRADIENT */}
       <svg width="0" height="0">

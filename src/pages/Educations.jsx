@@ -67,13 +67,13 @@ const educations = [
 
 export default function Educations() {
   return (
-    <div className="min-h-screen flex flex-col items-center px-4 pb-14 overflow-x-hidden">
+    <div className="min-h-screen flex flex-col items-center px-4 overflow-x-hidden">
 
-      <div className="py-0 sm:py-10 mb-2">
+      <div className="mb-6">
         <LoopingTyping text="Education" />
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full pb-8 sm:pb-0 max-w-4xl">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-22 w-full max-w-4xl">
 
         {educations.map((item, index) => {
           return (

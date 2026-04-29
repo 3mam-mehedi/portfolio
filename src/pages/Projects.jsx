@@ -50,7 +50,7 @@ export default function Projects() {
   ];
 
   return (
-    <section className="lg:py-10 sm:px-6 lg:px-12">
+    <section className="sm:px-6 lg:px-12">
      <h2 className="text-3xl font-bold text-center mb-6 flex justify-center">
   <span className="typing-text">
     Projects<span className=""></span>
@@ -58,7 +58,7 @@ export default function Projects() {
 </h2>
 
       {/* Responsive grid with proper mobile spacing */}
-      <div className="grid gap-6 sm:grid-cols-2 mb-20 lg:grid-cols-3 place-items-center">
+      <div className="grid gap-6 sm:grid-cols-2 mb-22 lg:grid-cols-3 place-items-center">
         {projects.map((project, i) => (
           <div
             key={i}

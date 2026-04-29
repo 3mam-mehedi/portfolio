@@ -106,17 +106,17 @@ export default function Specializations() {
   }, []);
 
   return (
-    <section className="lg:py-10">
+    <section>
 
       <div className="max-w-6xl mx-auto px-4">
 
         {/* 🔥 Typing Title */}
-        <h2 className="text-3xl font-bold mb-4 text-center bg-gradient-to-r from-[#0968E5] to-[#091970] bg-clip-text text-transparent">
+        <h2 className="text-3xl font-bold mb-6 text-center bg-gradient-to-r from-[#0968E5] to-[#091970] bg-clip-text text-transparent">
           {displayText}
           <span className="ml-1 animate-pulse">|</span>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 mb-22 gap-8">
 
           <Card
             icon={FaReact}
